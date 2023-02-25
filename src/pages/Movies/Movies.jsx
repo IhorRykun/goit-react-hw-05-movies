@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react';
 import { FetchSearchQuery } from '../../components/API/Api';
 import Notiflix from 'notiflix';
 
-
 export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
   const [filmSearchGallery, setFilmSearchGallery] = useState([]);
   const [filmSearchParams, setFilmSearchParams] = useSearchParams();
   const location = useLocation();
-
   let film = filmSearchParams.get('query') ?? '';
 
   useEffect(() => {
@@ -18,17 +16,17 @@ export const Movies = () => {
     FetchSearchQuery(filmSearch)
       .then(gallery => {
         if (gallery.results.length === 0) {
-          Notiflix.Notify.faiture('film not found');
+          Notiflix.Notify.failure('Film not found');
           setFilmSearch('');
           return;
         }
         setFilmSearchGallery(gallery.results);
       })
       .catch(error => console.log('ERROR'));
-  }, [film, filmSearch]);
+  }, [filmSearch, film]);
 
-  const handleSubmitSearchFilm = e => {
-    e.preventDefault();
+  const handleSubmitSearchFilm = event => {
+    event.preventDefault();
     if (film === '') {
       setFilmSearchParams({});
       Notiflix.Notify.warning('Enter a search term');
@@ -36,10 +34,11 @@ export const Movies = () => {
     }
     setFilmSearchParams({ query: film });
     setFilmSearch(film);
-    e.target.reset();
+    event.target.reset();
   };
-  const handleSearchForm = e => {
-    film = e.target.value;
+
+  const handleSearchForm = event => {
+    film = event.target.value;
   };
 
   return (
@@ -47,14 +46,19 @@ export const Movies = () => {
       <Outlet />
       <form onSubmit={handleSubmitSearchFilm}>
         <input
+          class="input"
           type="text"
-          name="SearchForm"
-          autoComplete="off"
+          name="searchform"
+          autocomplete="off"
           autofocus
-          placeholder="Search movie for found "
+          placeholder="Search movie for found"
           onChange={handleSearchForm}
-        />
+        ></input>
+        <button type="submit" to={`query=${film}`}>
+          Search
+        </button>
       </form>
+
       {filmSearchGallery && (
         <ul>
           {filmSearchGallery.map(({ id, title }) => {
