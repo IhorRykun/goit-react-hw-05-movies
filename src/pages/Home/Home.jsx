@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FetchMovieTrend } from '../../components/API/Api';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [movieTrends, setMovieTrend] = useState([]);
@@ -20,9 +20,9 @@ export const Home = () => {
         {movieTrends.map(({ id, title }) => {
           return (
             <li key={id}>
-              <Link to={`/movie/${id}`} state={{ form: location }}>
+              <NavLink to={`/movie/${id}`} state={{ form: location }}>
                 {title}
-              </Link>
+              </NavLink>
             </li>
           );
         })}

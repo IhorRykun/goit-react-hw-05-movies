@@ -1,4 +1,9 @@
-import { useParams, Outlet, useLocation, NavLink } from 'react-router-dom';
+import {
+  useParams,
+  Outlet,
+  useLocation,
+  NavLink,
+} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FetchMovieID } from '../../components/API/Api';
 
@@ -39,14 +44,14 @@ export const MovieDetalies = () => {
         </div>
       </div>
       <h4>Additional Information</h4>
-      <NavLink>
+      <div>
         <NavLink to="cast" state={{ form: location.state.form }}>
           Cast
         </NavLink>
         <NavLink to="reviews" state={{ form: location.state.form }}>
           Reviews
         </NavLink>
-      </NavLink>
+      </div>
       <Outlet />
     </div>
   );
