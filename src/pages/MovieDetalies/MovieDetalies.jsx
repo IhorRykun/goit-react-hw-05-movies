@@ -6,21 +6,22 @@ export const MovieDetalies = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
+
   useEffect(() => {
     FetchMovieID(movieId)
       .then(setMovie)
       .catch(error => console.log('error'));
   }, [movieId]);
 
-  const imgMovie = `https://image.tmdb.org/t/p/w500` + movie.poster_path;
-  const backLink = location.state.form;
+  const imgMovie = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+  const backLink = location.state?.from;
   if (!movie.genres) {
     return;
   }
 
   return (
     <div>
-      <link to={backLink}>1234</link>
+      <lLnk to={backLink}>Back</lLnk>
       <div>
         <img src={imgMovie} alt={movie.original_title} />
         <div>
