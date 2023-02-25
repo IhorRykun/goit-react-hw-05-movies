@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FetchSearchQuery } from 'components/API/FetchApi';
 import Notiflix from 'notiflix';
@@ -36,14 +36,37 @@ export const Movie = () => {
     setFilmSearchParams({ query: film });
     setFilmSearch(film);
     e.target.reset();
- };
- const handleSearchForm = event => {
-   film = event.target.value;
- };
+  };
+  const handleSearchForm = e => {
+    film = e.target.value;
+  };
 
- return (
-  <div>
-   
-  </div>
- )
+  return (
+    <div>
+      <Outlet />
+      <form onSubmit={handleSubmitSearchFilm}>
+        <input
+          type="text"
+          name="SearchForm"
+          autoComplete="off"
+          autofocus
+          placeholder="Search movie for found "
+          onChange={handleSearchForm}
+        />
+      </form>
+      {filmSearchGallery && (
+        <ul>
+          {filmSearchGallery.map(({ id, title }) => {
+            return (
+              <li key={id}>
+                <Link to={`${id}`} state={{ from: location }}>
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
 };
