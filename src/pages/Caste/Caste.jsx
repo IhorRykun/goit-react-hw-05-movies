@@ -3,25 +3,25 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export const Cast = () => {
-  const [starts, setStart] = useState([]);
+  const [stars, setStars] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
     FetchMovieCastId(movieId)
-      .then(movie => setStart(movie.cast))
-      .catch(error => console.log('error'));
+      .then(movie => setStars(movie.cast))
+      .catch(error => console.log('ERROR'));
   }, [movieId]);
 
   return (
     <div>
       <ul>
-        {starts.map(({ porfile_path, name, character }) => {
-          const startProfile = 'https://image.tmdb.org/t/p/w500' + porfile_path;
+        {stars.map(({ profile_path, name, character }) => {
+          const starProfile = 'https://image.tmdb.org/t/p/w500' + profile_path;
           return (
             <li key={name}>
-              <img src={startProfile} alt={name} />
-              <h4>{name}</h4>
-              <h4>Character:{character}</h4>
+              <img src={starProfile} alt={name} />
+              <h5>{name}</h5>
+              <h5>Character : {character}</h5>
             </li>
           );
         })}
