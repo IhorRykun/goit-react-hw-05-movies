@@ -1,4 +1,4 @@
-import { useParams, Outlet, useLocation,Link, Route, Routes } from 'react-router-dom';
+import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FetchMovieID } from '../../components/API/Api';
 
@@ -44,14 +44,14 @@ export const MovieDetails = () => {
         </div>
       </div>
       <h4>Additional Information</h4>
-      <Routes>
-        <Route  to="cast" state={{ from: location.state.from }}>
+      <div>
+        <Link to="cast" state={{ from: location.state.from }}>
           Cast
-        </Route>
-        <Route  to="reviews" state={{ from: location.state.from }}>
+        </Link>
+        <Link to="reviews" state={{ from: location.state.from }}>
           Reviews
-        </Route>
-      </Routes>
+        </Link>
+      </div>
       <Outlet />
     </div>
   );
