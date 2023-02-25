@@ -20,7 +20,7 @@ export const Home = () => {
         {movieTrends.map(({ id, title }) => {
           return (
             <li key={id}>
-              <NavLink to={`/movie/${id}`} state={{ form: location }}>
+              <NavLink to={`/movie/${id}`} state={{ from: location }}>
                 {title}
               </NavLink>
             </li>

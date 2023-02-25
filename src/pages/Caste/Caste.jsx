@@ -16,7 +16,7 @@ export const Cast = () => {
     <div>
       <ul>
         {starts.map(({ porfile_path, name, character }) => {
-          const startProfile = `https://image.tmdb.org/t/p/w500` + porfile_path;
+          const startProfile = 'https://image.tmdb.org/t/p/w500' + porfile_path;
           return (
             <li key={name}>
               <img src={startProfile} alt={name} />
