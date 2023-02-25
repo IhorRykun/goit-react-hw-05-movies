@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { FetchSearchQuery } from 'components/API/FetchApi';
 import Notiflix from 'notiflix';
 
-export const Movie = () => {
+export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
   const [filmSearchGallery, setFilmSearchGallery] = useState([]);
   const [filmSearchParams, setFilmSearchParams] = useSearchParams();
