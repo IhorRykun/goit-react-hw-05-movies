@@ -1,6 +1,6 @@
-import { FetchMovieCastId } from 'components/API/Api';
-import { useState } from 'react';
-import { useParams, useEffect } from 'react';
+import { FetchMovieCastId } from '../../components/API/Api';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export const Cast = () => {
   const [starts, setStart] = useState([]);
@@ -9,7 +9,7 @@ export const Cast = () => {
   useEffect(() => {
     FetchMovieCastId(movieId)
       .then(movie => setStart(movie.cast))
-      .catch(error => console.log(error));
+      .catch(error => console.log("error"));
   }, [movieId]);
 
   return (

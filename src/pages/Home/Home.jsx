@@ -7,9 +7,11 @@ export const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    FetchMovieTrend(1).then(gallery => {
-      setMovieTrend(gallery.results);
-    });
+    FetchMovieTrend(1)
+      .then(gallery => {
+        setMovieTrend(gallery.results);
+      })
+      .catch(error => console.log('error'));
   }, []);
   return (
     <div>

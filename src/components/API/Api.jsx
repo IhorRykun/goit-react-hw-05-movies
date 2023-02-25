@@ -12,7 +12,7 @@ export const FetchMovieID = id => {
   return fetch(`${API_HTTP}movie/${id}?api_key=${API_KEY}`).then(responce =>
     responce.json()
   );
-};
+}; 
 
 export const FetchMovieRevId = id => {
   return fetch(`${API_HTTP}movie/${id}/reviews?api_key=${API_KEY}`).then(
