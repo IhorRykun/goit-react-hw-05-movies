@@ -9,7 +9,7 @@ export const Cast = () => {
   useEffect(() => {
     FetchMovieCastId(movieId)
       .then(movie => setStart(movie.cast))
-      .catch(error => console.log("error"));
+      .catch(error => console.log('error'));
   }, [movieId]);
 
   return (

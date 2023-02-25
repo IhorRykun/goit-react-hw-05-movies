@@ -9,7 +9,7 @@ export const Reviews = () => {
   useEffect(() => {
     FetchMovieID(movieId)
       .then(movie => setReviews(movie.results))
-      .catch(error => console.log('error'));
+      .catch(error => console.log('ERROR'));
   }, [movieId]);
   if (reviews.length === 0) {
     return <p>Reviews not found</p>;
@@ -21,7 +21,7 @@ export const Reviews = () => {
         {reviews.map(({ id, author, content }) => {
           return (
             <li key={id}>
-              <h3>Author: {author}</h3>
+              <h3>Author : {author}</h3>
               <p>{content}</p>
             </li>
           );
