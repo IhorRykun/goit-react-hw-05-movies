@@ -1,7 +1,7 @@
 import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FetchSearchQuery } from '../../components/API/Api';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 
 export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
@@ -16,7 +16,7 @@ export const Movies = () => {
     FetchSearchQuery(filmSearch)
       .then(gallery => {
         if (gallery.results.length === 0) {
-          Notiflix.Notify.failure('Film not found');
+          toast.error('Film not found');
           setFilmSearch('');
           return;
         }
@@ -29,7 +29,7 @@ export const Movies = () => {
     event.preventDefault();
     if (film === '') {
       setFilmSearchParams({});
-      Notiflix.Notify.warning('Enter a search term');
+      toast.error('Enter a search term');
       return;
     }
     setFilmSearchParams({ query: film });
