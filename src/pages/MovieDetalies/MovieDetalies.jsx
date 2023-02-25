@@ -1,6 +1,6 @@
 import { useParams, Outlet, useLocation, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { FetchMovieID } from 'components/API/FetchApi';
+import { FetchMovieID } from '../../components/API/Api';
 
 export const MovieDetalies = () => {
   const [movie, setMovie] = useState({});

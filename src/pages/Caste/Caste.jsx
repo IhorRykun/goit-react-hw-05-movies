@@ -1,6 +1,6 @@
 import { FetchMovieCastId } from 'components/API/Api';
 import { useState } from 'react';
-import { useParams, useEffect } from 'react-router';
+import { useParams, useEffect } from 'react';
 
 export const Cast = () => {
   const [starts, setStart] = useState([]);

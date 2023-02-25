@@ -1,7 +1,8 @@
 import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FetchSearchQuery } from 'components/API/FetchApi';
+import { FetchSearchQuery } from '../../components/API/Api';
 import Notiflix from 'notiflix';
+
 
 export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
