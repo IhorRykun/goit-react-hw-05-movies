@@ -1,13 +1,13 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { FetchMovieID } from 'components/API/Api';
+import { FetchMovieRevId } from 'components/API/Api';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
-    FetchMovieID(movieId)
+    FetchMovieRevId(movieId)
       .then(movie => setReviews(movie.results))
       .catch(error => console.log('ERROR'));
   }, [movieId]);
