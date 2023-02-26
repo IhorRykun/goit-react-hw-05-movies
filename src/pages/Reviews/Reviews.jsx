@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { FetchMovieRevId } from 'components/API/Api';
+import { ListSyled } from './Reviews.styled';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -17,7 +18,7 @@ export const Reviews = () => {
 
   return (
     <div>
-      <ul>
+      <ListSyled>
         {reviews.map(({ id, author, content }) => {
           return (
             <li key={id}>
@@ -26,7 +27,7 @@ export const Reviews = () => {
             </li>
           );
         })}
-      </ul>
+      </ListSyled>
     </div>
   );
 };
