@@ -1,7 +1,15 @@
-import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
+import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FetchSearchQuery } from '../../components/API/Api';
 import { toast } from 'react-toastify';
+import {
+  ButtonStyled,
+  FormStyled,
+  InputStyled,
+  ItemStyle,
+  LinkStyle,
+  ListStyle,
+} from './Movies.styled';
 
 export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
@@ -44,8 +52,8 @@ export const Movies = () => {
   return (
     <div>
       <Outlet />
-      <form onSubmit={handleSubmitSearchFilm}>
-        <input
+      <FormStyled onSubmit={handleSubmitSearchFilm}>
+        <InputStyled
           class="input"
           type="text"
           name="searchform"
@@ -53,24 +61,24 @@ export const Movies = () => {
           autofocus
           placeholder="Search movie for found"
           onChange={handleSearchForm}
-        ></input>
-        <button type="submit" to={`query=${film}`}>
+        ></InputStyled>
+        <ButtonStyled type="submit" to={`query=${film}`}>
           Search
-        </button>
-      </form>
+        </ButtonStyled>
+      </FormStyled>
 
       {filmSearchGallery && (
-        <ul>
+        <ListStyle>
           {filmSearchGallery.map(({ id, title }) => {
             return (
-              <li key={id}>
-                <Link to={`${id}`} state={{ from: location }}>
+              <ItemStyle key={id}>
+                <LinkStyle to={`${id}`} state={{ from: location }}>
                   {title}
-                </Link>
-              </li>
+                </LinkStyle>
+              </ItemStyle>
             );
           })}
-        </ul>
+        </ListStyle>
       )}
     </div>
   );

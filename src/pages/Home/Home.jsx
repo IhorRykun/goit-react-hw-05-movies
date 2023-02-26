@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FetchMovieTrend } from '../../components/API/Api';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { ItemStyle, ListStyle, StyleLink } from './Home.styled';
 export const Home = () => {
   const [movieTrends, setMovieTrends] = useState([]);
   const location = useLocation();
@@ -16,17 +17,17 @@ export const Home = () => {
   return (
     <div>
       <h1>Tranding Day</h1>
-      <ul>
+      <ListStyle>
         {movieTrends.map(({ id, title }) => {
           return (
-            <li key={id}>
-              <NavLink to={`/movies/${id}`} state={{ from: location }}>
+            <ItemStyle key={id}>
+              <StyleLink to={`/movies/${id}`} state={{ from: location }}>
                 {title}
-              </NavLink>
-            </li>
+              </StyleLink>
+            </ItemStyle>
           );
         })}
-      </ul>
+      </ListStyle>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FetchMovieID } from '../../components/API/Api';
+import { ContainerFilms, ContainerMovied, LinkStyled } from './MovieDetalies.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -22,9 +23,9 @@ export const MovieDetails = () => {
   }
 
   return (
-    <div>
-      <Link to={backLink}>&#8592; Go back</Link>
-      <div>
+    <ContainerMovied>
+      <LinkStyled to={backLink}>&#8592; Go back</LinkStyled>
+      <ContainerFilms>
         <div>
           <img src={imgMovie} alt={movie.original_title} />
           <div>
@@ -42,7 +43,7 @@ export const MovieDetails = () => {
             </p>
           </div>
         </div>
-      </div>
+      </ContainerFilms>
       <h4>Additional Information</h4>
       <div>
         <Link to="cast" state={{ from: location.state.from }}>
@@ -53,6 +54,6 @@ export const MovieDetails = () => {
         </Link>
       </div>
       <Outlet />
-    </div>
+    </ContainerMovied>
   );
 };
