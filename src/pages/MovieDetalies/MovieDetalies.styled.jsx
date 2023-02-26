@@ -12,4 +12,20 @@ export const ContainerMovied = styled.div`
 `;
 
 export const ContainerFilms = styled.div`
-padding-top:20px`;
+  padding-top: 20px;
+`;
+
+export const ContainerImgMovie = styled.div`
+  display: flex;
+`;
+
+export const ImgStyled = styled.img`
+  margin-right: 30px;
+`;
+
+export const LinkStyledCast = styled(Link)`
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+`;

@@ -1,7 +1,14 @@
-import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FetchMovieID } from '../../components/API/Api';
-import { ContainerFilms, ContainerMovied, LinkStyled } from './MovieDetalies.styled';
+import {
+  ContainerFilms,
+  ContainerImgMovie,
+  ContainerMovied,
+  ImgStyled,
+  LinkStyled,
+  LinkStyledCast,
+} from './MovieDetalies.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -26,8 +33,8 @@ export const MovieDetails = () => {
     <ContainerMovied>
       <LinkStyled to={backLink}>&#8592; Go back</LinkStyled>
       <ContainerFilms>
-        <div>
-          <img src={imgMovie} alt={movie.original_title} />
+        <ContainerImgMovie>
+          <ImgStyled src={imgMovie} alt={movie.original_title} />
           <div>
             <h3>
               {movie.original_title} ({movie.release_date.slice(0, 4)})
@@ -42,16 +49,16 @@ export const MovieDetails = () => {
               })}
             </p>
           </div>
-        </div>
+        </ContainerImgMovie>
       </ContainerFilms>
       <h4>Additional Information</h4>
       <div>
-        <Link to="cast" state={{ from: location.state.from }}>
+        <LinkStyledCast to="cast" state={{ from: location.state.from }}>
           Cast
-        </Link>
-        <Link to="reviews" state={{ from: location.state.from }}>
+        </LinkStyledCast>
+        <LinkStyledCast to="reviews" state={{ from: location.state.from }}>
           Reviews
-        </Link>
+        </LinkStyledCast>
       </div>
       <Outlet />
     </ContainerMovied>
