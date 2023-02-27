@@ -36,7 +36,7 @@ export const Movies = () => {
   const handleSubmitSearchFilm = event => {
     event.preventDefault();
 
-    if (film === '' || filmSearch.trim() === '') {
+    if (film.trim() === '') {
       setFilmSearchParams({});
       toast.error('Enter a search term');
       return;
