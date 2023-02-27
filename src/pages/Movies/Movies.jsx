@@ -23,7 +23,7 @@ export const Movies = () => {
     setFilmSearchGallery([]);
     FetchSearchQuery(filmSearch)
       .then(gallery => {
-        if (gallery.results.length === 0 || gallery.results === '') {
+        if (gallery.results.length === '') {
           toast.error('Film not found');
           setFilmSearch('');
           return;
