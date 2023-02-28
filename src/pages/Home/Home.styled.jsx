@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 export const TextTitle = styled.h1`
   text-align: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 47px;
 `;
 export const ListStyle = styled.ul`
   list-style: none;
@@ -31,4 +35,8 @@ export const ImgStyle = styled.img`
 
 export const TextContent = styled.p`
   text-align: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
 `;

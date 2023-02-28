@@ -56,9 +56,9 @@ export const StyleImg = styled.img`
 
 export const TextContent = styled.p`
   text-align: center;
+  text-align: center;
   font-family: 'Open Sans';
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-weight: 800;
+  font-size: 18px;
 `;

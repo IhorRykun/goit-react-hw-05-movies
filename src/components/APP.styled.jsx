@@ -7,6 +7,11 @@ export const Nav = styled.nav`
 `;
 
 export const StyledLink = styled(NavLink)`
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 55px;
   margin-left: 10px;
   color: black;
   text-decoration: none;
