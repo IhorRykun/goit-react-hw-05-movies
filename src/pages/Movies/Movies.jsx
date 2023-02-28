@@ -9,6 +9,7 @@ import {
   ItemStyle,
   LinkStyle,
   ListStyle,
+  StyleImg,
 } from './Movies.styled';
 import { MdOutlineImageSearch } from 'react-icons/md';
 
@@ -64,23 +65,29 @@ export const Movies = () => {
           onChange={handleSearchForm}
         ></InputStyled>
         <ButtonStyled type="submit" to={`query=${film}`}>
-          <MdOutlineImageSearch
-            style={{ width: '20px', height: '20px' }}
-          />
+          <MdOutlineImageSearch style={{ width: '20px', height: '20px' }} />
         </ButtonStyled>
       </FormStyled>
 
       {filmSearchGallery && (
         <ListStyle>
-          {filmSearchGallery.map(({ id, title }) => {
-            return (
-              <ItemStyle key={id}>
-                <LinkStyle to={`${id}`} state={{ from: location }}>
-                  {title}
-                </LinkStyle>
-              </ItemStyle>
-            );
-          })}
+          {filmSearchGallery.map(
+            ({
+              id,
+              title,
+              backdrop_path,
+            }) => {
+              const posters = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
+              return (
+                <ItemStyle key={id}>
+                  <LinkStyle to={`${id}`} state={{ from: location }}>
+                    <StyleImg src={`${posters}`} alt={title} />
+                    <p>{title}</p>
+                  </LinkStyle>
+                </ItemStyle>
+              );
+            }
+          )}
         </ListStyle>
       )}
       <Outlet />

@@ -30,6 +30,9 @@ export const ButtonStyled = styled.button`
 export const ListStyle = styled.ul`
   list-style: none;
   color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 export const ItemStyle = styled.li`
   margin-top: 10px;
@@ -39,4 +42,8 @@ export const LinkStyle = styled(Link)`
   text-decoration: none;
   color: black;
   padding: 5px;
+`;
+
+export const StyleImg = styled.img`
+  width: 450px;
 `;
