@@ -28,7 +28,7 @@ export const MovieDetails = () => {
   if (!movie.genres) {
     return;
   }
-  
+
   return (
     <ContainerMovied>
       <LinkStyled to={backLink}>&#8592; Go back</LinkStyled>
@@ -48,18 +48,21 @@ export const MovieDetails = () => {
                 return <span key={id}> {name}</span>;
               })}
             </p>
+            <h4>Additional Information</h4>
+            <div>
+              <LinkStyledCast to="cast" state={{ from: location.state.from }}>
+                Cast
+              </LinkStyledCast>
+              <LinkStyledCast
+                to="reviews"
+                state={{ from: location.state.from }}
+              >
+                Reviews
+              </LinkStyledCast>
+            </div>
           </div>
         </ContainerImgMovie>
       </ContainerFilms>
-      <h4>Additional Information</h4>
-      <div>
-        <LinkStyledCast to="cast" state={{ from: location.state.from }}>
-          Cast
-        </LinkStyledCast>
-        <LinkStyledCast to="reviews" state={{ from: location.state.from }}>
-          Reviews
-        </LinkStyledCast>
-      </div>
       <Outlet />
     </ContainerMovied>
   );
