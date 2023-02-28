@@ -10,6 +10,7 @@ import {
   LinkStyle,
   ListStyle,
   StyleImg,
+  TextContent,
 } from './Movies.styled';
 import { MdOutlineImageSearch } from 'react-icons/md';
 
@@ -82,7 +83,7 @@ export const Movies = () => {
                 <ItemStyle key={id}>
                   <LinkStyle to={`${id}`} state={{ from: location }}>
                     <StyleImg src={`${posters}`} alt={title} />
-                    <p>{title}</p>
+                    <TextContent>{title}</TextContent>
                   </LinkStyle>
                 </ItemStyle>
               );

@@ -34,6 +34,7 @@ export const ListStyle = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
 `;
 export const ItemStyle = styled.li`
   margin-top: 10px;
@@ -47,4 +48,17 @@ export const LinkStyle = styled(Link)`
 
 export const StyleImg = styled.img`
   width: 450px;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
+
+export const TextContent = styled.p`
+  text-align: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 `;
