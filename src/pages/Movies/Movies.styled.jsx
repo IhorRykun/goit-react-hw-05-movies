@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export const FormStyled = styled.form`
   margin-top: 20px;
   display: flex;
+  justify-content: center;
 `;
 
 export const InputStyled = styled.input`
