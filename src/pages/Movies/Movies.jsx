@@ -10,6 +10,7 @@ import {
   LinkStyle,
   ListStyle,
 } from './Movies.styled';
+import { MdOutlineImageSearch } from 'react-icons/md';
 
 export const Movies = () => {
   const [filmSearch, setFilmSearch] = useState('');
@@ -63,7 +64,9 @@ export const Movies = () => {
           onChange={handleSearchForm}
         ></InputStyled>
         <ButtonStyled type="submit" to={`query=${film}`}>
-          Search
+          <MdOutlineImageSearch
+            style={{ width: '20px', height: '20px' }}
+          />
         </ButtonStyled>
       </FormStyled>
 

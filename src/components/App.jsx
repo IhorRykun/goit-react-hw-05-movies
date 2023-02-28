@@ -13,8 +13,12 @@ export const App = () => {
     <Container>
       <ToastContainer />
       <Nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
+        <StyledLink and to="/">
+          Home
+        </StyledLink>
+        <StyledLink and to="/movies">
+          Movies
+        </StyledLink>
       </Nav>
       <div>
         <Routes>
