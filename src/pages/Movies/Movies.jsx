@@ -52,7 +52,6 @@ export const Movies = () => {
 
   return (
     <div>
-      <Outlet />
       <FormStyled onSubmit={handleSubmitSearchFilm}>
         <InputStyled
           class="input"
@@ -81,6 +80,7 @@ export const Movies = () => {
           })}
         </ListStyle>
       )}
+      <Outlet />
     </div>
   );
 };
