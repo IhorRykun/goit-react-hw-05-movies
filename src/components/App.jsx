@@ -13,10 +13,10 @@ export const App = () => {
     <Container>
       <ToastContainer />
       <Nav>
-        <StyledLink and to="/">
+        <StyledLink to="/">
           Home
         </StyledLink>
-        <StyledLink and to="/movies">
+        <StyledLink to="/movies">
           Movies
         </StyledLink>
       </Nav>
@@ -30,7 +30,7 @@ export const App = () => {
           </Route>
           <Route path="*" element={<Home />} />
         </Routes>
-      </div>
+      </div> 
     </Container>
   );
 };

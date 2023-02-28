@@ -23,12 +23,12 @@ export const MovieDetails = () => {
 
   const imgMovie = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
 
-  const backLink = location.state?.from ?? '/';
+  const backLink = location.state?.from ?? '/home';
 
   if (!movie.genres) {
     return;
   }
-
+  
   return (
     <ContainerMovied>
       <LinkStyled to={backLink}>&#8592; Go back</LinkStyled>
