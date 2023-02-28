@@ -12,7 +12,11 @@ export const ListStyle = styled.ul`
 
 export const ItemStyle = styled.li`
   padding: 3px;
-  gap: 10px;
+  gap: 20px;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const StyleLink = styled(NavLink)`
