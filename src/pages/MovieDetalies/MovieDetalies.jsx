@@ -23,7 +23,7 @@ export const MovieDetails = () => {
 
   const imgMovie = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
 
-  const backLink = location.state?.from ?? '/home';
+  const backLink = location.state?.from ?? '/';
 
   if (!movie.genres) {
     return;

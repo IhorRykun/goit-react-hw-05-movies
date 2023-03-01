@@ -57,11 +57,10 @@ export const Movies = () => {
     <div>
       <FormStyled onSubmit={handleSubmitSearchFilm}>
         <InputStyled
-          class="input"
           type="text"
           name="searchform"
           autocomplete="off"
-          autofocus
+          autoFocus
           placeholder="Search movie for found"
           onChange={handleSearchForm}
         ></InputStyled>
@@ -72,23 +71,17 @@ export const Movies = () => {
 
       {filmSearchGallery && (
         <ListStyle>
-          {filmSearchGallery.map(
-            ({
-              id,
-              title,
-              backdrop_path,
-            }) => {
-              const posters = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
-              return (
-                <ItemStyle key={id}>
-                  <LinkStyle to={`${id}`} state={{ from: location }}>
-                    <StyleImg src={`${posters}`} alt={title} />
-                    <TextContent>{title}</TextContent>
-                  </LinkStyle>
-                </ItemStyle>
-              );
-            }
-          )}
+          {filmSearchGallery.map(({ id, title, backdrop_path }) => {
+            const posters = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
+            return (
+              <ItemStyle key={id}>
+                <LinkStyle to={`${id}`} state={{ from: location }}>
+                  <StyleImg src={`${posters}`} alt={title} />
+                  <TextContent>{title}</TextContent>
+                </LinkStyle>
+              </ItemStyle>
+            );
+          })}
         </ListStyle>
       )}
       <Outlet />
