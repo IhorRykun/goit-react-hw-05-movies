@@ -21,8 +21,7 @@ export const MovieDetails = () => {
       .catch(error => console.log('ERROR'));
   }, [movieId]);
 
-  const imgMovie = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
-
+ const imgMovie = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
   const backLink = location.state?.from ?? '/';
 
   if (!movie.genres) {

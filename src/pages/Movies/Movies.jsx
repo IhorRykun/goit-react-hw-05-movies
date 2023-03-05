@@ -72,7 +72,11 @@ export const Movies = () => {
       {filmSearchGallery && (
         <ListStyle>
           {filmSearchGallery.map(({ id, title, backdrop_path }) => {
-            const posters = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
+            let posters = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
+            if (backdrop_path === null) {
+              posters =
+                'https://phonoteka.org/uploads/posts/2021-05/1621904500_11-phonoteka_org-p-fon-dlya-nazvaniya-filma-11.jpg';
+            }
             return (
               <ItemStyle key={id}>
                 <LinkStyle to={`${id}`} state={{ from: location }}>
